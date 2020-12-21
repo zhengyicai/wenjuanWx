@@ -1,0 +1,195 @@
+<import src="../../modules/chat-input/chat-input.wxml" />
+<view class="chat" style="height: {{height}}px">
+    <scroll-view scroll-y='true'  scroll-top="{{top}}" class="chat-content" style="height: {{chatHeight}}px">
+      <view >
+      
+        <view class="chat-content-list-time">{{normalDataTime}}</view>
+        <!-- <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+               
+                  <text selectable='true'>请选择下列您认为对您最重要的三项活动（请不要写其他活动）。</text>    
+              </view>
+          </view>
+        </view> -->
+        
+      </view>
+
+
+       
+       <view  wx:for="{{chatItems}}"  wx:for-item="item">
+         
+      <view class="chat-content-list-time" ></view>
+       
+        <view class="chat-content-list " wx-if="{{item.type==10}}"  >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"  style="border:{{message1==index?'red':'white'}} 2px solid;background-color:{{index%2==0?'#FCFCFC':'#EAEAEA'}}"> 
+                  <view selectable='true' class="textSize">{{item.name}}<text style="font-size:18px;">({{index<28?index+1:index}}/{{answerList.length+2}})</text></view>
+              </view>
+             
+          </view>
+        </view>
+
+
+        <view class="chat-content-list " wx-if="{{item.type==20}}"  >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content1" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg row" style="font-size:12px;text-align: justify; padding:0rpx 0rpx;background-color:{{index%2==0?'#FCFCFC':'#EAEAEA'}}"> 
+                  
+                  <view class="col-12" style="font-size:22px; text-align: justify;width:100%"  class="textSize" wx:for="{{showForList}}"  wx:for-item="item1" data-index="{{index}}"><view bindtap='bindSelect1' data-cap="{{index}}" disabled="{{item1.type=='20'?'disabled':''}}" class="{{item1.type=='20'?'checked1':''}}" >{{item1.title}}<image  src="{{index==10?'../../image/11.png':index==11?'../../image/12.png':index==12?'../../image/13.png':index==13?'../../image/14.png':index==14?'../../image/15.png':index==15?'../../image/16.png':index==16?'../../image/17.png':index==17?'../../image/18.png':''}}" style="width:24px;height:24px;"></image> </view></view>
+              </view>    
+          </view>
+          
+        </view>
+       
+        <!-- 默认展示  语音 -->
+        <view class="chat-content-list-time" wx-if="{{item.message!=''}}"></view>
+        <view class="chat-content-list right" wx-if="{{item.message!=''}}"  >
+         <view  bindtap="delMsg"  data-index="{{index}}" style="position:absolute;left:22%;color:red;">修改</view>      
+          <view class="chat-content-list-content" data-index="{{index}}">
+              <view class="chat-content-list-voice"  >
+              
+                  <text style="font-weight:500" class="textSize">{{item.message}}</text> 
+                 
+                  <view class='over-read-tip active'></view>
+              </view>
+          </view>
+        </view>  
+        
+            <!-- <view style="height:140px" wx-if="{{chatItems.length>2}}"></view>    -->
+
+           <view style="height:160px" wx-if="{{chatItems.length>2 && selectanswerList.length<6 }}"></view>
+
+            <view style="height:60px" wx-if="{{chatItems.length>2 && selectanswerList.length>=6 }}"></view>   
+
+
+      </view>
+
+ <!-- 自动回复 -->
+       <view wx-if="{{showOne==10}}" >
+      
+     
+      </view>
+      
+    </scroll-view>
+    
+
+    <!-- 输入文字 -->
+    <view wx-if="{{showType==30}}"  class="row" style="height:50px;background-color:#F7F7F7">
+         <view class="row">
+              <view class="col" style="">
+                  <view class="col-9" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                       <input  class="textSize" bindinput='message'  value='{{message}}' placeholder="请输入文字" style="background-color:white;border-radius:5px;height:2rem" />
+                  </view>
+                  <view class="col-3" style="float:left;padding-top:0.3rem;padding-left:0.5rem;padding-right:0.5rem">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px" bindtap='sent'>发送</button>
+                  </view>
+                  
+              </view>
+          </view>
+    </view>
+
+
+
+
+     <view wx-if="{{showType==10}}" class="row" style="height:100px;" >
+                <view class="row">
+                      <view class="col" style="padding-right:0.5rem">
+                       <view style="margin:0px 10px;font-size:26px">请选择:</view>    
+                          <view class="col-12" wx:for="{{selectanswerList}}"  wx:for-item="item" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                              <button class="textSize"  style="text-align:left;padding-left:10px;height:45px;line-height:45px;border-radius:5px;background-color:{{selectItem==item.answer?'#ccc':'#339900'}};color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="{{item.answer}}">{{item.answer}}</button>
+                          </view>
+                        
+                       
+                      </view>    
+                  
+                            
+               </view>
+      </view>
+
+
+      <view wx-if="{{showType==20}}" class="row" style="height:100px;" >
+                <view class="row">
+                      <view class="col" style="padding-right:0.5rem;padding-left:0.5rem">
+                          
+
+                          <view style="font-size:26px">请选择:</view>    
+                          
+                           <view  class="col-3" wx-if="{{selectanswerList.length>0}}" style="text-align:center;float:left;  padding-right:0px" bindtap='alertTitle' >
+                                 <image src="../../image/1.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px;"> </image>
+                                 <image src="../../image/2.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px"> </image>
+                                 <image src="../../image/3.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px"> </image>
+                                 <image src="../../image/4.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px"> </image>
+                                 <image src="../../image/5.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px"> </image>
+                                 <image src="../../image/6.png"  style="width:60px;height:50px;margin:15px 0px 15px 10px"> </image>
+                           </view>  
+                           <view class="col-9" wx:for="{{selectanswerList}}"  wx:for-item="item"  style="float:left; padding-left:10px; padding-top:0.3rem;">
+                              
+                              <button class="col-6"   style="float:left; font-size:35px;height:40px;line-height:40px;border-radius:5px;background-color:{{selectItem==item.answer?'#ccc':'#339900'}}  ;color:white;border:0px;padding:1px 3px" bindtap='bindViewTapUrlOne' data-cap="{{item.answer}}">{{item.answer}}</button>
+                              <view class="col-6" bindtap='alertTitle'   wx-if='{{index%2==0}}'  style="float:left; font-size:25px;  padding-left:10px; ">{{index==0?"无痛":index==2?"有点痛":index==4?"轻微疼痛":index==6?"疼痛明显":index==8?"疼痛严重":index==10?"剧烈痛":""}}</view>
+                          </view>
+                         
+                         
+                          <!-- <view class="col-12">
+                            <image src="/image/biaoqing.jpg" style="width:100%;height:50px"></image>
+                          </view>                         -->
+                       
+                      </view>    
+                  
+                            
+               </view>
+      </view>
+
+
+        <view wx-if="{{showType==40}}"    class="row" style="height:100px; display:none" >
+                <view class="row">
+                      <view class="col" style="padding-right:0.5rem;padding-left:0.5rem">
+                          <view class="col-1" wx:for="{{selectanswerList1}}"  wx:for-item="item"  style="float:left; padding-top:0.3rem;opacity:{{item.answer*0.1+0.2}}">
+                              <button  style="height:43px;line-height:40px;border-radius:5px;background-color:{{item.type=='10'?'#cccccc':'#339900'}};color:white;border:0px;padding:1px 3px" bindtap='bindSelect' data-cap="{{item}}">{{item.title}}</button>
+                          </view>
+                          
+                      </view>    
+                  
+                            
+               </view>
+      </view>
+
+      <view wx-if="{{showType==50}}" class="row" style="height:100px;" >
+                <view class="row">
+                      <view class="col" style="padding-right:0.5rem">
+                       <view style="margin:0px 10px;font-size:26px">请选择:</view>    
+                          <view class="col-12" wx:for="{{selectanswerList}}"  wx:for-item="item" style="text-align:left; float:left; padding-top:0.3rem;padding-left:0.5rem">
+                              <button class="textSize"  style="text-align:left;height:45px;line-height:45px;border-radius:5px;background-color:{{selectItem==item.answer?'#ccc':'#339900'}};color:white;border:0px;" bindtap='bindViewTapUrlOne1' data-cap="{{item.answer}}">{{item.answer}}</button>
+                          </view>
+                        
+                       
+                      </view>    
+                  
+                            
+               </view>
+      </view>
+
+
+       <view wx-if="{{showType==60}}" class="row" style="height:100px;" >
+                <view class="row">
+                      <view class="col" style="padding-right:0.5rem">
+                          <view class="col-12">
+                              <button  style="height:45px;line-height:45px; font-size:30px;border-radius:5px;background-color:#339900;color:white;border:0px;" bindtap='success1'>确认提交</button>
+                          </view>
+                        
+                       
+                      </view>    
+                  
+                            
+               </view>
+      </view>  
+
+    
+
+   
+    
+    <!-- <template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true}}" /> -->
+</view>
+

@@ -1,0 +1,189 @@
+<import src="../../modules/chat-input/chat-input.wxml" />
+<view class="chat" style="height: {{height}}px">
+    <scroll-view scroll-y='true' scroll-top="{{top}}" class="chat-content" style="height: {{chatHeight}}px">
+      <view >
+      
+        <view class="chat-content-list-time">{{normalDataTime}}</view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+                  <!-- <text selectable='true'>平地行走时疼痛程度?    (0[轻微]-10[疼痛难忍])</text> -->
+                  <text selectable='true'>当在平地行走时，您的疼痛程度是？</text>    
+              </view>
+          </view>
+        </view>
+        
+      </view>
+
+
+      <!-- <view >
+      
+        <view class="chat-content-list-time"></view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg row" style="font-size:12px;"> 
+                  <view class="col-12"  style="font-weight:bold">娱乐活动</view>
+                  <view class="col-12">1游泳</view>
+                  <view class="col-12">2高尔夫球（18 洞）</view>
+                  <view class="col-12">3骑自行车（＞30min）</view>
+                  <view class="col-12">4园艺（例如种花草、种菜）</view>
+                  <view class="col-12">5保龄球运动</view>
+                  <view class="col-12">6球拍类运动（例如羽毛球、乒乓球）</view>
+                  <view class="col-12">7长距离行走/竞走</view>
+                  <view class="col-12">8跳舞/芭蕾舞</view>
+                  <view class="col-12">9拉伸运动</view>
+                  
+                  <view class="col-12" style="font-weight:bold">健身和健身活动</view>
+                  <view class="col-12">10举重训练</view>
+                  <view class="col-12">11腿部屈伸训练</view>
+                  <view class="col-12">12台阶踩踏训练</view>
+                  <view class="col-12">13健身脚踏车训练</view>
+                  <view class="col-12">14健身跑训练</view>
+                  <view class="col-12">15腿部推蹬训练</view>
+                  <view class="col-12">16椭圆练习仪训练</view>
+                  <view class="col-12">17有氧健身训练</view>
+              </view>
+          </view>
+        </view>
+        
+      </view> -->
+
+
+   
+
+       <view  wx:for="{{chatItems}}"  wx:for-item="item">
+        <!-- 默认展示  语音 -->
+        <view class="chat-content-list-time"></view>
+        <view class="chat-content-list right"  >      
+          <view class="chat-content-list-content" data-index="{{index}}">
+              <view class="chat-content-list-voice"  >
+                  <text style="font-weight:500">{{item}}</text> 
+                 
+                  <view class='over-read-tip active'></view>
+              </view>
+          </view>
+        </view>       
+      </view>
+
+ <!-- 自动回复 -->
+       <!-- <view wx-if="{{showOne==10}}" >
+      
+       
+      <view class="chat-content-list-time" ></view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+                  <text selectable='true'>请输入您的手机号？</text>
+              </view>
+          </view>
+        </view>
+      </view>
+       -->
+    </scroll-view>
+    
+
+    <!-- 输入文字 -->
+    <!-- <view class="row" style="height:50px;background-color:#F7F7F7">
+         <view class="row">
+              <view class="col" style="">
+                  <view class="col-9" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                       <input bindinput='message'  value='{{message}}' placeholder="请输入文字" style="background-color:white;border-radius:5px;height:2rem" />
+                  </view>
+                  <view class="col-3" style="float:left;padding-top:0.3rem;padding-left:0.5rem;padding-right:0.5rem">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px" bindtap='sent'>发送</button>
+                  </view>
+                  
+              </view>
+          </view>
+    </view> -->
+
+
+   <view class="row" style="height:100px;background-color:#F7F7F7">
+         <view class="row">
+              <view class="col" style="padding-right:0.5rem;">
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:0.2">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="0">0</button>
+                  </view>
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:0.2">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="1">1</button>
+                  </view>
+                  <view class="col-1" style="float:left;padding-top:0.3rem;opacity:0.3">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="2">2</button>
+                  </view>
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:0.4">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="3">3</button>
+                  </view>
+                  <view class="col-1" style="float:left;padding-top:0.3rem;opacity:0.5">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="4">4</button>
+                  </view>
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:0.6">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:{{color}}; color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="5">5</button>
+                  </view>
+                  <view class="col-1" style="float:left;padding-top:0.3rem;opacity:0.7">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="6">6</button>
+                  </view>
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:0.8">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="7">7</button>
+                  </view>
+                  <view class="col-1" style="float:left;padding-top:0.3rem;opacity:0.9">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="8">8</button>
+                  </view>
+                  <view class="col-1" style="float:left; padding-top:0.3rem;opacity:1">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="9">9</button>
+                  </view>
+                  <view class="col-1" style="float:left;padding-top:0.3rem;opacity:1.1">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; padding-left:8px" bindtap='bindViewTapUrlOne' data-cap="10">10</button>
+                  </view>
+                  <!-- <view class="col-2" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="11">11</button>
+                  </view>
+                  <view class="col-2" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="12">12</button>
+                  </view>
+                  <view class="col-2" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="13">13</button>
+                  </view>
+                  <view class="col-2" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="14">14</button>
+                  </view>
+                  <view class="col-2" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="15">15</button>
+                  </view>
+                  <view class="col-2" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="16">16</button>
+                  </view>
+                  <view class="col-2" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="17">17</button>
+                  </view>
+                  -->
+                  <view class="col-6" style=" float:left;padding-top:0.3rem;padding-left:0.5rem;text-align:left  ">
+                      无痛
+                  </view>
+                   <view class="col-6" style=" float:right;padding-top:0.3rem;text-align:right ">
+                      剧烈疼痛
+                  </view>
+
+                   <view class="col-6" style=" float:left;padding-top:0.3rem;padding-left:0.5rem; ">
+                        <button class="col-3"  style="display:none; height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="上一步">上一步</button>
+                        
+                  </view>    
+                  
+                   <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem; ">
+                        <button class="col-3"  style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="上一步">上一步</button>
+                        <button  class="col-3" style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="下一步">下一步</button>
+                        <button  class="col-3" style="height:2rem; width:29%;line-height:2rem;border-radius:5px;height:2rem;background-color:#FFA500;color:white;border:0px; float:left;font-size:0.7rem;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="重填">重填</button>
+                  </view>                  
+              </view>
+          </view>
+    </view> 
+
+    
+
+   
+    
+    <!-- <template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true}}" /> -->
+</view>
+

@@ -1,0 +1,88 @@
+<view>
+ 
+ 
+  <view wx-if="{{showOne==10}}"   class="weui-cells weui-cells_after-title" style="height:80px;line-height:30px;margin-top:20px">
+      <view class="weui-cell weui-cell_input" style="border:1px solid #ccc;margin-left:2rem;margin-right:2rem">
+        <input class="weui-input" bindinput='nameblur' name='phone' type="number" style="line-height:50px;margin-top:-5px;height:50px"   placeholder="请输入患者住院号或手机号" />
+      </view>
+      <view >
+        <button style="background-color:#339900;  font-size:26px; color:white;width:300px;margin-top:20px;border-radius:5px;height:45px;line-height:45px;" bindtap='sent' >查找</button>
+      </view>
+  </view>
+ 
+  <view wx-if="{{showOne==20}}" style="margin-top:3rem；border:1px solid #ccc;margin-left:2rem;margin-right:2rem">
+     
+      <view class="table" style="border:1px solid #cccccc;color:#333;font-size:17px">
+        <view>患者基本信息</view>
+        
+        <view class="tr">
+            <view class="td" style="width:40%">姓名：</view>
+            <view class="td" style="width:60%">{{person.name}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">性别：</view>
+            <view class="td" style="width:60%">{{person.sex=='10'?"男":"女"}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">年龄：</view>
+            <view class="td" style="width:60%">{{person.age}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%"> 住院号：</view>
+            <view class="td" style="width:60%">{{person.cardNo}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">民族：</view>
+            <view class="td" style="width:60%">{{person.nation}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">身高(cm)：</view>
+            <view class="td" style="width:60%">{{person.height1}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">体重(kg)：</view>
+            <view class="td" style="width:60%">{{person.weight1}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">职业：</view>
+            <view class="td" style="width:60%">{{person.vocation}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">学历：</view>
+            <view class="td" style="width:60%">{{person.record}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">家庭住址：</view>
+            <view class="td" style="width:60%">{{person.address}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">联系号码：</view>
+            <view class="td" style="width:60%">{{person.phone}}</view>
+        </view>
+         <view class="tr">
+            <view class="td" style="width:40%">患病位置：</view>
+            <view class="td" style="width:60%">{{person.type=='10'?"左脚":"右脚"}}</view>
+        </view>
+        <view class="tr">
+            <view class="td" style="width:40%">主管医生：</view>
+            <view class="td" style="width:60%">{{person.loginName}}</view>
+        </view>
+
+      
+      </view>
+        <span style="color:red;font-size:13px">*请确认信息是否有误，如有误，请联系主管医生。</span>
+        <view >
+           <navigator url="../type/type" wx-if="{{type==10}}">
+            <button style="background-color:#339900; height:45px;line-height:45px;  font-size:26px; color:white;width:300px;margin-top:20px;border-radius:5px;" >开始问答</button>
+          </navigator>
+          <navigator url="../type1/type1" wx-if="{{type==20}}">
+            <button style="background-color:#339900; height:45px;line-height:45px;  font-size:26px; color:white;width:300px;margin-top:20px;border-radius:5px;" >开始问答</button>
+          </navigator>
+
+         
+        </view>
+
+      
+  </view>
+</view>
+

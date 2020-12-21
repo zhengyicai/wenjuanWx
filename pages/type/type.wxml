@@ -1,0 +1,82 @@
+<view>
+
+       <view style="padding:10px 20px;">
+             
+              <view style="font-size:24px; margin-top:100px;padding:10px 20px">请选择评估类型:</view>
+              <navigator  wx-if="{{show1==''}}" url='../chatPerson/chatPerson?type1=10' hover-class='none' style="margin-top:20px">
+                    <button  style=" padding-left:18px;text-align:center;height:45px;line-height:45px; font-size:23px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术前评估1（术前预约时）
+                    </button>
+              </navigator>
+
+               <navigator  wx-if="{{show1=='10'}}" url='../chatPersonEdit/chatPersonEdit?type1=10' hover-class='none' style="margin-top:20px">
+                    <button  style="padding-left:18px;text-align:center;height:45px;line-height:45px; font-size:23px;border-radius:5px;background-color:#ccc;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术前评估1（术前预约时）
+                    </button>
+              </navigator>
+
+
+
+
+              <navigator wx-if="{{show2==''}}" url='../chatPerson/chatPerson?type1=20' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术前评估2（手术前1天）
+                    </button>
+              </navigator>
+
+
+               <navigator wx-if="{{show2=='10'}}" url='../chatPersonEdit/chatPersonEdit?type1=20' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#ccc;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术前评估2（手术前1天）
+                    </button>
+              </navigator>
+
+
+
+
+
+
+
+               <navigator wx-if="{{show3==''}}" url='../chatPerson/chatPerson?type1=30' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px;  font-size:24px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估1（术后3个月）
+                    </button>
+              </navigator>
+
+              <navigator wx-if="{{show3=='10'}}" url='../chatPersonEdit/chatPersonEdit?type1=30' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#ccc;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估1（术后3个月）
+                    </button>
+              </navigator>
+
+
+
+
+
+               <navigator wx-if="{{show4==''}}" url='../chatPerson/chatPerson?type1=40' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估2（术后6个月）
+                    </button>
+              </navigator>
+               <navigator wx-if="{{show4=='10'}}" url='../chatPersonEdit/chatPersonEdit?type1=40' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#ccc;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估2（术后6个月）
+                    </button>
+              </navigator>
+
+
+
+
+               <navigator wx-if="{{show5==''}}" url='../chatPerson/chatPerson?type1=50' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估3（手术后1年）
+                    </button>
+              </navigator>
+               <navigator wx-if="{{show5=='10'}}" url='../chatPersonEdit/chatPersonEdit?type1=50' hover-class='none' style="margin-top:20px">
+                    <button  style="text-align:center;height:45px;line-height:45px; font-size:24px;border-radius:5px;background-color:#ccc;color:white;border:0px; margin:10px 20px;letter-spacing:-1px;" bindtap='go1'>
+                       术后评估3（手术后1年）
+                    </button>
+              </navigator>
+       </view>
+
+</view>

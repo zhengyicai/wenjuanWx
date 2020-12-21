@@ -1,0 +1,41 @@
+/* pages/person/person.wxss */
+.table {
+    border:1px solid #dadada;
+    border-right: 0;
+    border-bottom: 0;
+    width: 98%;
+    margin-top:60px;
+  }
+  .tr {
+      width: 100%;
+      display: flex;
+      
+      justify-content: space-between;
+  }
+  .th,.td {
+      padding: 5px;
+      /* border-bottom: 1px solid #dadada;
+      border-right: 1px solid #dadada; */
+      text-align: left;
+      width:100%
+  }
+
+
+  
+  .th {
+    font-weight: 400;
+    background-color: #dadada
+  }
+
+  page{
+    /* background-image: url('http://123.207.121.118/uploadImages/back.png');
+    height:100%;
+    background-size:contain;
+    background-repeat:repeat; */
+  
+    background:url("http://123.207.121.118/uploadImages/back1.png") no-repeat bottom center;
+    -webkit-background-size:contain;
+    background-size:contain;
+   
+    
+  }

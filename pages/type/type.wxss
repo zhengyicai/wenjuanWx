@@ -1,0 +1,14 @@
+/* pages/type/type.wxss */
+
+page{
+  /* background-image: url('http://123.207.121.118/uploadImages/back.png');
+  height:100%;
+  background-size:contain;
+  background-repeat:repeat; */
+
+  background:url("http://123.207.121.118/uploadImages/back1.png") no-repeat bottom center;
+  -webkit-background-size:contain;
+  background-size:contain;
+ 
+  
+}

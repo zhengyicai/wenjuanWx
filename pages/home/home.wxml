@@ -1,0 +1,33 @@
+
+<view class="my-item" style="height:60px;line-height:60px;margin-top:10px" > 
+
+    <view  style="text-align:right">  
+          <button  bindtap='go1' disabled="{{btn=='20'}}"   style="float:right;width:30%; margin-right:10px;background-color:{{ btn=='20'?'#cccccc':'#339900'}};color:white;">下一步</button>
+    </view>
+
+    
+    <view style="clear:both"></view>
+    <view  style="font-size:26px;"><text decode='nbsp'> &nbsp;&nbsp; </text>请选择：</view>
+    <view class="language" bindtap='select1' style="text-align:center;padding-top:30px; ">
+        <!-- <navigator url='../person/person?type=10' hover-class='none'> -->
+        
+                <image src="../../image/chat/voice/huanzhi.png" style="width:8rem;height:8rem;border:5px solid {{ btn1=='10'?'#339900':'#c3c3c3'}}"></image>   
+            
+                <view style="margin-top:-30px;font-size:26px">我是患者</view>
+        <!-- </navigator> -->
+    </view>
+
+
+    <view class="language" bindtap='select2' style="text-align:center;padding-top:30px; ">
+        <!-- <navigator url='../person/person?type=20' hover-class='none'> -->
+        <image src="../../image/chat/voice/logo111.png" style="width:8rem;height:8rem;border:5px solid  {{ btn1=='20'?'#339900':'#c3c3c3'}}"></image>   
+        <view style="margin-top:-30px;font-size:26px">我是医生</view>
+        <!-- </navigator> -->
+    </view>
+    <!-- <view style="font-size:13px;line-height:20px;text-align:center;color:red">
+        <view>版权所有：</view>
+        <view>广东省中医院（广州中医药大学第二附属医院)</view>
+        <view>运动医学科/骨与关节退变及损伤研究团队</view>
+    </view>      -->
+                
+</view>

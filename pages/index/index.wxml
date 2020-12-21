@@ -1,0 +1,28 @@
+<view>
+      <view style="text-align:center;margin-top:40px;font-weight:bold;font-size:21px">全膝关节置换（TKA）评估分析系统</view>
+      <view  style="text-align:center;font-size:23px;font-weight:bold;">简介</view>
+       <view  style="padding:10px 20px;line-height:38px ;">
+       
+       <view style="border:2px solid #339900; padding:5px 5px;border-radius:5px;padding:20px 20px；font-size:24px;text-align: justify;">
+           <text decode='nbsp'> &nbsp;&nbsp;&nbsp; </text>“全膝关节置换（TKA）评估分析系统”，主要参考规范的国际通用量表翻译修订方法研制而成；该系统包括术前和术后2套评估方案，综合以临床医生为主的客观评价体系和以患者报告为主的主观评价体系，通过对客观膝关节指标、症状、满意度、预期和各组运动时的功能等维度进行评估，更为真实的反映TKA干预的疗效，为临床诊疗决策优化提供参考依据。
+       </view>
+       </view>
+
+
+        <view>
+              <navigator url='../two/two' hover-class='none'>
+                    <button  style="height:45px;line-height:45px; font-size:26px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px" bindtap='go1'>我要答题</button>
+              </navigator>
+       </view>
+
+        <view>
+        
+           <!-- <view style="font-size:16px;line-height:20px;text-align:center;color:red;margin-top:20px">
+                <view>版权所有：</view>
+                <view>广东省中医院（广州中医药大学第二附属医院)</view>
+                <view>运动医学科/骨与关节退变及损伤研究团队</view>
+            </view>      -->
+        </view>
+
+      
+</view>

@@ -1,0 +1,175 @@
+<import src="../../modules/chat-input/chat-input.wxml" />
+<view class="chat" style="height: {{height}}px">
+    <scroll-view scroll-y='true' scroll-top="{{top}}" class="chat-content" style="height: {{chatHeight}}px">
+      <view >
+      
+        <view class="chat-content-list-time">{{normalDataTime}}</view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+                  <!-- <text selectable='true'>平地行走时疼痛程度?    (0[轻微]-10[疼痛难忍])</text> -->
+                  <text selectable='true'>请选择下列您认为对您最重要的三项活动（请不要写其他活动）。</text>    
+              </view>
+          </view>
+        </view>
+        
+      </view>
+
+
+      <view >
+      
+        <view class="chat-content-list-time"></view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+                  <!-- <text selectable='true'>平地行走时疼痛程度?    (0[轻微]-10[疼痛难忍])</text> -->
+                  <text selectable='true'>第一项</text>    
+              </view>
+          </view>
+        </view>
+        
+      </view>
+
+
+      <!-- 默认展示  语音 -->
+      <!-- <view > 
+        <view class="chat-content-list-time">{{normalDataTime}}</view>
+        <view class="chat-content-list right" >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/speak.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-voice"  >
+                  <text>5s</text> 
+                  <image class='chat-voice-img' src='../../image/chat-voice-img@3x.png'></image>
+                  <view class='over-read-tip active'></view>
+              </view>
+          </view>
+        </view>       
+      </view> -->
+
+
+       <view  wx:for="{{chatItems}}"  wx:for-item="item">
+        <!-- 默认展示  语音 -->
+        <view class="chat-content-list-time"></view>
+        <view class="chat-content-list right"  >      
+          <view class="chat-content-list-content" data-index="{{index}}">
+              <view class="chat-content-list-voice"  >
+                  <text style="font-weight:500">{{item}}</text> 
+                 
+                  <view class='over-read-tip active'></view>
+              </view>
+          </view>
+        </view>       
+      </view>
+
+ <!-- 自动回复 -->
+       <!-- <view wx-if="{{showOne==10}}" >
+      
+       
+      <view class="chat-content-list-time" ></view>
+        <view class="chat-content-list " >
+          <image class="chat-content-list-avatar "  src="../../image/chat/voice/logo111.png"></image>
+          <view class="chat-content-list-content" bindlongtap="delMsg" data-index="{{index}}">
+              <view class="chat-content-list-msg"> 
+                  <text selectable='true'>请输入您的手机号？</text>
+              </view>
+          </view>
+        </view>
+      </view>
+       -->
+    </scroll-view>
+    
+
+    <!-- 输入文字 -->
+    <!-- <view class="row" style="height:50px;background-color:#F7F7F7">
+         <view class="row">
+              <view class="col" style="">
+                  <view class="col-9" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                       <input bindinput='message'  value='{{message}}' placeholder="请输入文字" style="background-color:white;border-radius:5px;height:2rem" />
+                  </view>
+                  <view class="col-3" style="float:left;padding-top:0.3rem;padding-left:0.5rem;padding-right:0.5rem">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px" bindtap='sent'>发送</button>
+                  </view>
+                  
+              </view>
+          </view>
+    </view> -->
+
+
+   <!-- <view class="row" style="height:100px;background-color:#F7F7F7">
+         <view class="row">
+              <view class="col" style="padding-right:0.5rem">
+                  <view class="col-6" style="float:left; padding-top:0.3rem;padding-left:0.5rem">
+                      <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="非常满意">非常满意</button>
+                  </view>
+                  <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="满意">满意</button>
+                  </view>
+                
+                  <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="一般">一般</button>
+                  </view>
+                  <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="不满意">不满意</button>
+                  </view>
+                  <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="非常不满意">非常不满意</button>
+                  </view>
+                   <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem; ">
+                        <button class="col-3"  style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="上一步">上一步</button>
+                        <button  class="col-3" style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="下一步">下一步</button>
+                        <button  class="col-3" style="height:2rem; width:29%;line-height:2rem;border-radius:5px;height:2rem;background-color:#FFA500;color:white;border:0px; float:left;font-size:0.7rem;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="重填">重填</button>
+                  </view>                  
+              </view>
+          </view>
+    </view>  -->
+
+     <view class="row" style="background-color:#F7F7F7;margin-top:5px">
+         <view class="row">
+              <view class="col" style="">
+              <view class="col-12" style="float:left; color:white; height:50px; margin-bottom:3px;padding-top:0.5rem;padding-left:0.5rem;text-align:center;background-color:green">
+                     
+                      <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array1}}">
+                        <view class="picker">
+                          {{title1}}
+                        </view>
+                      </picker>
+                       
+                  </view>
+                  <view class="col-12" style="float:left; color:white; height:50px;padding-top:0.5rem; margin-bottom:3px;padding-left:0.5rem;text-align:center;background-color:green">
+                     
+                      <picker bindchange="bindPickerChange2" value="{{index}}" range="{{array2}}">
+                        <view class="picker">
+                           {{title2}}
+                        </view>
+                      </picker>
+                       
+                  </view>
+                  <view class="col-12" style="float:left; color:white; height:50px;padding-top:0.5rem;padding-left:0.5rem;text-align:center;background-color:green">
+                     
+                      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class="picker">
+                          {{title}}
+                        </view>
+                      </picker>
+                       
+                  </view>
+                   <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem;">
+                        <button  style="display:none; height:2rem;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px;" bindtap='bindViewTapUrlOne' data-cap="非常不满意">非常不满意</button>
+                  </view>
+                   <view class="col-6" style="float:left;padding-top:0.3rem;padding-left:0.5rem; ">
+                        <button class="col-3"  style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="上一步">上一步</button>
+                        <button  class="col-3" style="height:2rem; width:35%;line-height:2rem;border-radius:5px;height:2rem;background-color:#339900;color:white;border:0px; float:left;font-size:0.7rem;margin-right:0.5%;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="下一步">下一步</button>
+                        <button  class="col-3" style="height:2rem; width:29%;line-height:2rem;border-radius:5px;height:2rem;background-color:#FFA500;color:white;border:0px; float:left;font-size:0.7rem;font-weight:bold;padding-left:5px;padding-right:5px;" bindtap='bindViewTapUrlOne' data-cap="重填">重填</button>
+                  </view>
+                 
+              </view>
+          </view>
+    </view>
+
+   
+    
+    <!-- <template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true}}" /> -->
+</view>
+

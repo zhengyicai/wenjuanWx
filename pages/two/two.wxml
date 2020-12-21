@@ -1,0 +1,33 @@
+<view>
+     
+      <view  style="text-align:center;font-size:23px;font-weight:bold; margin-top:30px">答题说明</view>
+       <view  style="padding:10px 20px;line-height:38px ;">
+       
+       <scroll-view scroll-y="true"  style="border:2px solid #339900;border-radius:5px;padding:20px 20px；font-size:24px ;height:430px;text-align: justify;">
+          <view><text decode='nbsp'> &nbsp;&nbsp; &nbsp; </text> （1）首次进入该系统，医生填写病人基本信息，微信转给病人进行确认；病人确认无误之后，开始填写问卷；二次进入界面填写，输入病人的手机号/住院号进行“查找”，找到病人基本信息确认之后，开始填写问卷；所有题目填完之后，点“提交”即可。</view>
+          <view><text decode='nbsp'> &nbsp;&nbsp;&nbsp;  </text> （2）本系统分为医生界面和患者界面，在5个不同时间点（术前预约时、手术前1天、术后3个月、术后6个月、手术后1年）进行评估；5次评估的填写，均可以输入患者的手机号/住院号进行查阅或修改。</view>
+          <view> <text decode='nbsp'> &nbsp;&nbsp;&nbsp;  </text>（3）医生界面：采用左右翻页模式，选择角色“我是医生”，在题目下方选择选项之后，点右上方“下一题”，所有题目填写之后，点“提交”即可；点“上一题”，可以回到之前填过的题目进行修改。</view>
+          <view> <text decode='nbsp'> &nbsp;&nbsp;&nbsp;  </text>（4）病人界面：主要以对话式的问卷形式展开，选择角色“我是患者”，在题目下方选择选项之后，自动进入下一题；所有题目填写之后点“提交”即可；可以在屏幕翻看之前填过的题目，点题目左侧红色“修改”字样，可以重选填写。</view>
+          <view> <text decode='nbsp'> &nbsp;&nbsp; &nbsp; &nbsp;</text>    本系统所涉及的信息将做保密处理；再次衷心地感谢您的参与，谢谢！</view>
+           <view>
+        
+           <view style="font-size:16px;line-height:20px;text-align:center;color:red;margin-top:20px">
+                <view>版权所有：</view>
+                <view>广东省中医院（广州中医药大学第二附属医院)</view>
+                <view>运动医学科/骨与关节退变及损伤研究团队</view>
+            </view>     
+        </view>              
+       </scroll-view>
+       </view>
+
+
+        <view>
+              <navigator url='../home/home' hover-class='none'>
+                    <button  style="height:45px;line-height:45px; font-size:26px;border-radius:5px;background-color:#339900;color:white;border:0px; margin:10px 20px" bindtap='go1'>下一步</button>
+              </navigator>
+       </view>
+
+       
+
+      
+</view>
